@@ -7,5 +7,5 @@ Score.prototype.getScore = function(){
 }
 
 Score.prototype.increaseScoreBy = function (numOfPoints) {
-  this.score+=10;
+  this.score+=numOfPoints;
 };
