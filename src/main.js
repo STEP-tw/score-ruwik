@@ -2,8 +2,13 @@ let snake=undefined;
 let food=undefined;
 let numberOfRows=60;
 let numberOfCols=120;
-let score = 0;
+let score = new Score();
 let animator=undefined;
+
+const increaseAndUpdateScoreBy = function(numOfPoints){
+  score.increaseScoreBy(10);
+  displayUpdatedScore(score.getScore());
+}
 
 const animateSnake=function() {
   let oldHead=snake.getHead();
@@ -13,8 +18,7 @@ const animateSnake=function() {
   unpaintSnake(oldTail);
   paintHead(head);
   if(head.isSameCoordAs(food)) {
-    score+=10;
-    document.getElementById('scoreBoard').innerText = `score: ${score}`;
+    increaseAndUpdateScoreBy(10);
     snake.grow();
     createFood(numberOfRows,numberOfCols);
     drawFood(food);
