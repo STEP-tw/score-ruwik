@@ -2,7 +2,6 @@ let game=undefined;
 let food=undefined;
 let numberOfRows=60;
 let numberOfCols=120;
-let score = {};
 let animator=undefined;
 
 const increaseAndUpdateScoreBy = function(numOfPoints){
@@ -62,8 +61,9 @@ const createFood=function(numberOfRows,numberOfCols) {
 const createGame=function() {
   let topLeft=new Position(0,0,"east");
   let bottomRight=new Position(numberOfCols,numberOfRows,"east");
+  game=new Game(topLeft,bottomRight);
   score = new Score();
-  game=new Game(topLeft,bottomRight,score);
+  game.addScore(score);
 }
 
 const startGame=function() {

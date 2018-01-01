@@ -1,9 +1,9 @@
-const Game=function(topLeft,bottomRight,score) {
+const Game=function(topLeft,bottomRight) {
   this.topLeft=topLeft;
   this.bottomRight=bottomRight;
   this.snake={};
   this.food={};
-  this.score = score;
+  this.score = {};
 }
 
 Game.prototype.addSnake=function(snake) {
@@ -12,6 +12,10 @@ Game.prototype.addSnake=function(snake) {
 
 Game.prototype.getSnake=function() {
   return snake;
+}
+
+Game.prototype.addScore = function(score){
+  this.score = score;
 }
 
 Game.prototype.getScore = function(){
